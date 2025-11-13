@@ -1,0 +1,21 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import GoogleContactForm from '~/components/widgets/GoogleContactForm.astro';
+import Hero from '~/components/widgets/Hero.astro'; // Import the Hero component
+
+const metadata = {
+  title: 'Contact',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget -->
+  <HeroText tagline="Contact Us" title="We're here to help" />
+
+  <!-- Google Contact Form Widget -->
+<GoogleContactForm class="pb-0" />
+
+  <!-- NEW IMAGE ADDED HERE -->
+  <Hero class="-mt-16" image={{ src: '/images/testimonial-7.webp', alt: 'GlowGetter Reviews testimonial image' }} />
+</Layout>

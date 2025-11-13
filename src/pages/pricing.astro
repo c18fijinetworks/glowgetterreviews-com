@@ -1,0 +1,48 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { lifetimeDeal } from '~/data/pricingData';
+import Hero from '~/components/widgets/Hero.astro'; // Import the Hero component
+
+const metadata = {
+  title: 'GlowGetter Reviews Pricing',
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText title="Invest in Your Salon&#39;s Reputation and Growth" />
+
+  <div class="-mt-16">
+    <Pricing
+      id="pricing"
+      title={`Choose the plan that best fits your salon&#39;s needs and start collecting glowing testimonials today.`}
+      prices={[lifetimeDeal]}
+    />
+  </div>
+
+  <FAQs
+    class="-mt-16 px-6"
+    title="Frequently Asked Questions"
+    items={[
+        { title: 'How does GlowGetter Reviews work for my salon?', description: 'We provide a simple system to automate testimonial requests after appointments. These reviews are then displayed attractively on your digital platforms.', icon: 'tabler:scissors' },
+        { title: 'Can I customize how my reviews are displayed?', description: 'Yes, our platform offers customizable widgets to match your salon&#39;s unique brand aesthetic across your website and social media.', icon: 'tabler:scissors' },
+        { title: 'What if I have negative feedback?', description: 'While we focus on showcasing positive experiences, our platform can be configured to manage feedback privately before it&#39;s made public.', icon: 'tabler:scissors' },
+        { title: 'Is GlowGetter Reviews suitable for salons of all sizes?', description: 'Absolutely. We have plans tailored for independent stylists, small boutiques, and larger salon chains, scaling with your growth.', icon: 'tabler:scissors' },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </FAQs>
+
+  <Hero class="-mt-16" image={{ src: '/images/testimonial-5.webp', alt: 'GlowGetter Reviews testimonial image' }} />
+
+  <CallToAction
+    title="Ready to turn client compliments into your biggest growth driver?"
+    subtitle="Join hundreds of salons who are already experiencing the GlowGetter Reviews difference. Let&#39;s amplify your success, one glowing testimonial at a time. Get started today!"
+    actions={[
+      { variant: 'primary', text: 'Order Same-Day Setup Now', href: '#pricing' },
+    ]}
+  />
+</Layout>

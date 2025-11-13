@@ -1,0 +1,44 @@
+---
+import heroImage from '~/assets/images/testimonial-4.webp';
+import Hero from '~/components/widgets/Hero.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import { lifetimeDeal } from '~/data/pricingData';
+
+const metadata = {
+  title: 'About GlowGetter Reviews',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="About GlowGetter Reviews"
+    image={{ src: heroImage, alt: 'About SaasName' }}
+  >
+    <Fragment slot="title">
+      We Help Salons<br />
+      <span class="text-accent dark:text-white">Shine Brighter.</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      At GlowGetter Reviews, we understand the passion and dedication that goes into running a successful hair salon. We built our platform to amplify the voices of your happiest clients, transforming their positive experiences into powerful marketing tools that drive real growth.
+    </Fragment>
+  </Hero>
+
+  <Steps2
+    class="-mt-12"
+    title="Our Commitment to Your Salon&#39;s Success"
+    subtitle="These principles guide everything we do, ensuring we provide the best possible support for your business."
+    items={[
+      { title: 'Client-Centric Design', description: 'Our tools are built with your salon and your clients in mind, making feedback collection and showcasing seamless.' },
+      { title: 'Empowering Growth', description: 'We are dedicated to providing solutions that directly contribute to increasing your bookings and client base.' },
+      { title: 'Authenticity & Transparency', description: 'We champion genuine client feedback, believing that honest testimonials are the most valuable asset for any salon.' },
+    ]}
+  />
+  
+  <Pricing
+    title={`<span class="text-accent dark:text-white">Packages Designed for Salon Success</span>`}
+    prices={[lifetimeDeal]}
+  />
+</Layout>
