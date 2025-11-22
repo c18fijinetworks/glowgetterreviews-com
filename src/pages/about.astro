@@ -1,0 +1,47 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import { lifetimeDeal } from '~/data/pricingData';
+
+const metadata = {
+  title: 'About GlowGetter Reviews',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="About GlowGetter Reviews"
+    image={{ src: '/images/testimonial-4.webp', alt: 'About GlowGetter Reviews' }}
+  >
+    <Fragment slot="title">
+      Crafting Trust,<br />
+      <span class="text-accent dark:text-white">Shining Salons.</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      We understand the passion and artistry that goes into running a successful hair salon. GlowGetter Reviews was born from a desire to help talented salon professionals like you shine brighter by leveraging the most powerful marketing tool: genuine client satisfaction.
+    </Fragment>
+  </Hero>
+
+  <Steps2
+    class="-mt-12"
+    title="Our Commitment to Your Success"
+    subtitle="At GlowGetter Reviews, we&#39;re dedicated to empowering salons with the tools they need to thrive. Our core values guide everything we do."
+    items={[
+      { title: 'Authenticity', description: 'We champion genuine client experiences, ensuring your reviews are always real and trustworthy.' },
+      { title: 'Simplicity', description: 'Our platform is designed for ease of use, so you can focus on styling, not on complicated software.' },
+      { title: 'Growth', description: 'We are committed to providing solutions that directly contribute to your salon&#39;s reputation and client base.' },
+    ]}
+  />
+
+  <Pricing
+    class="pb-0"
+    title={`<span class="text-accent dark:text-white">Simple Plans for Salon Growth</span>`}
+    prices={[lifetimeDeal]}
+  />
+
+  <Hero class="-mt-16" image={{ src: '/images/testimonial-6.webp', alt: 'GlowGetter Reviews feature image' }} />
+
+</Layout>

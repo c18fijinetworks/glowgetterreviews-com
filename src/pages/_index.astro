@@ -1,0 +1,89 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Content from '~/components/widgets/Content.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import { headerData } from '~/navigation';
+import FAQs from '~/components/widgets/FAQs.astro';
+import { lifetimeDeal } from '~/data/pricingData';
+
+const metadata = {
+  title: 'GlowGetter Reviews | Elevate Your Salon&#39;s Reputation',
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <Header {...headerData} isSticky />
+  </Fragment>
+  
+  <Hero2
+    tagline="Amplify Your Salon&#39;s Shine."
+    title=`<span class="text-accent dark:text-white">Turn Happy Clients into Your Strongest Marketing Assets.</span>`
+    subtitle="GlowGetter Reviews is your dedicated testimonial engine, designed to effortlessly collect and showcase the glowing feedback your salon deserves."
+    actions={[
+      { variant: 'primary', text: 'Claim Your Lifetime Deal - $99', href: '/pricing/' },
+      { text: 'See How It Works', href: '#features' },
+    ]}
+    image={{ src: '/images/testimonial-1.webp', alt: 'Happy client in a modern hair salon' }}
+  />
+  
+  <Features
+    class="-mt-16"
+    id="features"
+    title="Why GlowGetter Reviews is Your Salon&#39;s Best Friend"
+    subtitle="Discover how we help you attract more clients and build trust, one rave review at a time."
+    columns={2}
+    items={[
+        { title: 'Effortless Review Collection', description: 'Automate the process of gathering feedback after appointments. Our system makes it simple for clients to share their amazing experiences.', icon: 'tabler:armchair' },
+        { title: 'Showcase Your Brilliance', description: 'Display authentic client testimonials prominently on your website and social media, building instant credibility and attracting new clients.', icon: 'tabler:cut' },
+        { title: 'Boost Your Online Reputation', description: 'Higher review volumes and better ratings lead to increased visibility and trust, driving more bookings to your salon.', icon: 'tabler:armchair' },
+        { title: 'Salon-Specific Insights', description: 'Gain valuable feedback to understand what clients love most, helping you refine your services and client experience.', icon: 'tabler:cut' },
+    ]}
+  />
+
+  <Content
+    class="-mt-16"
+    items={[
+        { title: 'Attract New Clients', description: 'Prospective clients trust real opinions. Showcase a steady stream of positive reviews to convince them your salon is the right choice.' },
+        { title: 'Build Lasting Loyalty', description: 'Encourage repeat business by showing clients their feedback is valued and contributes to an even better salon experience.' },
+    ]}
+    image={{ src: '/images/testimonial-2.webp', alt: 'Stylist working on a client' }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        <span class="text-accent dark:text-white">More Than Just Reviews</span></span>
+      </h3>
+    </Fragment>
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </Content>
+
+  <Pricing
+    title={`<span class="text-accent dark:text-white">Simple Plans for Salon Growth</span>`}
+    prices={[lifetimeDeal]}
+  />
+
+  <FAQs
+    class="-mt-16 px-6"
+    title="Frequently Asked Questions"
+    items={[
+        { title: 'How does GlowGetter Reviews work for salons?', description: 'We provide you with tools to easily request and collect reviews from your clients after their appointments. These reviews are then displayed to attract new customers.', icon: 'tabler:scissors' },
+        { title: 'Can I customize the review requests?', description: 'Yes, you can personalize the messages sent to clients to reflect your salon&#39;s unique brand voice and encourage specific feedback.', icon: 'tabler:scissors' },
+        { title: 'What if a client leaves a negative review?', description: 'Our platform allows you to manage and respond to all reviews, giving you the opportunity to address concerns constructively and professionally.', icon: 'tabler:scissors' },
+        { title: 'Is GlowGetter Reviews suitable for small salons?', description: 'Absolutely. Our plans are designed to scale with your business, whether you&#39;re a solo stylist or a large salon.', icon: 'tabler:scissors' },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </FAQs>
+
+<Steps2
+    class="-mt-16"
+    title="Unlock Your Salon&#39;s Potential"
+    subtitle="Stop missing out on the powerful endorsements of your happy clients. GlowGetter Reviews makes it easy to gather, manage, and showcase authentic testimonials, building trust and driving more bookings to your salon. Let your clients become your best advertisers."
+    callToAction={{ text: 'Contact us', href: '/contact/' }}
+    image={{ src: '/images/testimonial-3.webp', alt: 'GlowGetter Reviews Alt3' }}
+  />
+</Layout>
