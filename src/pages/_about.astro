@@ -1,0 +1,44 @@
+---
+import heroImage from '~/assets/images/testimonial-4.webp';
+import Hero from '~/components/widgets/Hero.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import { lifetimeDeal } from '~/data/pricingData';
+
+const metadata = {
+  title: 'About GlowGetter Reviews',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="About GlowGetter Reviews"
+    image={{ src: heroImage, alt: 'About SaasName' }}
+  >
+    <Fragment slot="title">
+      About GlowGetter Reviews<br />
+      <span class="text-accent dark:text-white">Built for Salons, Powered by Results</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      We understand the unique challenges faced by hair salons. GlowGetter Reviews was created to help you effortlessly collect and leverage the power of client testimonials to grow your business.
+    </Fragment>
+  </Hero>
+
+  <Steps2
+    class="-mt-12"
+    title="Our Core Values"
+    subtitle="We&#39;re committed to providing salons with a simple, effective, and beautiful testimonial solution."
+    items={[
+      { title: 'Simplicity', description: 'We believe collecting testimonials should be easy, not a chore.' },
+      { title: 'Results', description: 'We&#39;re focused on helping you see a tangible return on your investment.' },
+      { title: 'Salon-Focused', description: 'We&#39;re dedicated to understanding and serving the unique needs of the hair salon industry.' },
+    ]}
+  />
+  
+  <Pricing
+    title={`<span class="text-accent dark:text-white">Simple, Transparent Pricing</span>`}
+    prices={[lifetimeDeal]}
+  />
+</Layout>

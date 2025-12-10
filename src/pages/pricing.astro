@@ -1,0 +1,48 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { lifetimeDeal } from '~/data/pricingData';
+import Hero from '~/components/widgets/Hero.astro'; // Import the Hero component
+
+const metadata = {
+  title: 'GlowGetter Reviews Pricing',
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText title="Choose the Plan That&#39;s Right for Your Salon" />
+
+  <div class="-mt-16">
+    <Pricing
+      id="pricing"
+      title={`Flexible plans to fit your budget and growth goals.`}
+      prices={[lifetimeDeal]}
+    />
+  </div>
+
+  <FAQs
+    class="-mt-16 px-6"
+    title="Frequently Asked Questions"
+    items={[
+        { title: 'How does the automated review request work?', description: 'GlowGetter Reviews integrates with your appointment system (or you can manually upload client lists). We&#39;ll automatically send branded review requests at a time you specify.', icon: 'tabler:scissors' },
+        { title: 'Can I customize the look and feel of the testimonials?', description: 'Absolutely! You have full control over the branding of your review requests and testimonial galleries to match your salon&#39;s aesthetic.', icon: 'tabler:scissors' },
+        { title: 'What platforms do you integrate with?', description: 'We integrate with popular appointment scheduling systems like Vagaro, Square Appointments, and more. We also support Google My Business and Facebook.', icon: 'tabler:scissors' },
+        { title: 'Is there a free trial?', description: 'Yes! Start your 14-day free trial today – no credit card required.', icon: 'tabler:scissors' },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </FAQs>
+
+  <Hero class="-mt-16" image={{ src: '/images/testimonial-5.webp', alt: 'GlowGetter Reviews testimonial image' }} />
+
+  <CallToAction
+    title="Ready to Get Started?"
+    subtitle="Start your free trial today and see the difference GlowGetter Reviews can make!"
+    actions={[
+      { variant: 'primary', text: 'Order Same-Day Setup Now', href: '#pricing' },
+    ]}
+  />
+</Layout>

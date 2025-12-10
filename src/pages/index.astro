@@ -1,0 +1,89 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Content from '~/components/widgets/Content.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import { headerData } from '~/navigation';
+import FAQs from '~/components/widgets/FAQs.astro';
+import { lifetimeDeal } from '~/data/pricingData';
+
+const metadata = {
+  title: 'GlowGetter Reviews - Salon Testimonials',
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <Header {...headerData} isSticky />
+  </Fragment>
+  
+  <Hero2
+    tagline="Turn happy clients into a flood of new bookings."
+    title=`<span class="text-accent dark:text-white">The Easiest Way to Collect & Showcase Salon Testimonials</span>`
+    subtitle="Stop asking for reviews. Start *receiving* them. GlowGetter Reviews automates the process, so you can focus on what you do best – making your clients look and feel amazing."
+    actions={[
+      { variant: 'primary', text: 'Claim Your Lifetime Deal - $99', href: '/pricing/' },
+      { text: 'See How It Works', href: '#features' },
+    ]}
+    image={{ src: '/images/testimonial-1.webp', alt: 'Happy client in a modern hair salon' }}
+  />
+  
+  <Features
+    class="-mt-16"
+    id="features"
+    title="Features Designed for Salons, By Salon Experts"
+    subtitle="GlowGetter Reviews isn&#39;t just a review platform; it&#39;s a growth engine for your business."
+    columns={2}
+    items={[
+        { title: 'Automated Review Requests', description: 'Send beautiful, branded review requests via SMS & email *automatically* after each appointment. No more manual follow-ups!', icon: 'tabler:armchair' },
+        { title: 'Stunning Testimonial Galleries', description: 'Embed eye-catching testimonial galleries on your website, social media, and even in your salon. Showcase your best work!', icon: 'tabler:cut' },
+        { title: 'Photo & Video Testimonials', description: 'Let your clients speak for themselves! Easily collect and display photo and video testimonials for maximum impact.', icon: 'tabler:armchair' },
+        { title: 'SEO-Boosting Reviews', description: 'GlowGetter Reviews integrates with Google & other platforms, helping you improve your search ranking and attract more local clients.', icon: 'tabler:cut' },
+    ]}
+  />
+
+  <Content
+    class="-mt-16"
+    items={[
+        { title: 'Build Trust & Credibility', description: 'Potential clients trust the opinions of other clients. Testimonials are social proof that you deliver exceptional service.' },
+        { title: 'Increase Bookings & Revenue', description: 'Positive reviews directly influence booking decisions. More reviews = more clients = more revenue.' },
+    ]}
+    image={{ src: '/images/testimonial-2.webp', alt: 'Stylist working on a client' }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        <span class="text-accent dark:text-white">Why Testimonials Matter for Hair Salons</span></span>
+      </h3>
+    </Fragment>
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </Content>
+
+  <Pricing
+    title={`<span class="text-accent dark:text-white">Simple, Transparent Pricing</span>`}
+    prices={[lifetimeDeal]}
+  />
+
+  <FAQs
+    class="-mt-16 px-6"
+    title="Frequently Asked Questions"
+    items={[
+        { title: 'How does the automated review request work?', description: 'GlowGetter Reviews integrates with your appointment system (or you can manually upload client lists). We&#39;ll automatically send branded review requests at a time you specify.', icon: 'tabler:scissors' },
+        { title: 'Can I customize the look and feel of the testimonials?', description: 'Absolutely! You have full control over the branding of your review requests and testimonial galleries to match your salon&#39;s aesthetic.', icon: 'tabler:scissors' },
+        { title: 'What platforms do you integrate with?', description: 'We integrate with popular appointment scheduling systems like Vagaro, Square Appointments, and more. We also support Google My Business and Facebook.', icon: 'tabler:scissors' },
+        { title: 'Is there a free trial?', description: 'Yes! Start your 14-day free trial today – no credit card required.', icon: 'tabler:scissors' },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </FAQs>
+
+<Steps2
+    class="-mt-16"
+    title="Start Your Free Trial Today!"
+    subtitle="No credit card required. See how GlowGetter Reviews can transform your salon&#39;s reputation."
+    callToAction={{ text: 'Contact us', href: '/contact/' }}
+    image={{ src: '/images/testimonial-3.webp', alt: 'GlowGetter Reviews Alt3' }}
+  />
+</Layout>
